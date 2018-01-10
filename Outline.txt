@@ -15,6 +15,14 @@
     - Opening Example Projects
     - Summary
 2. KiCad Design Workflow
+    - Project Initialization
+    - Component Selection
+    - Schematic Layout
+    - Electrical Rules Check
+    - Footprint Association
+    - Circuit Board Layout
+    - Design Rules Check
+    - Plotting Layers
 3. KiCad Project Structure
 4. Component Symbol Design and Management
 5. Schematic Editor
