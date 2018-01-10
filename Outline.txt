@@ -1,5 +1,19 @@
 1. Introduction to CAD
-    -
+    - Circuit design
+    - Prototyping
+    - Printed circuit boards
+    - Installing KiCad
+        * Linux
+        * MacOS
+        * Windows
+    - Installing Libraries and Models
+    - First Run
+        * Setup Paths
+        * Setup Symbol Library Table
+        * Setup Footprint Library Table
+    - Upgrading from Version 4
+    - Opening Example Projects
+    - Summary
 2. KiCad Design Workflow
 3. KiCad Project Structure
 4. Component Symbol Design and Management
@@ -10,6 +24,7 @@
 9. Design for Manufacturing
 10. Circuit Board Tweaks and Revisioning
 11. Project Design Examples
-12. KiCad Extensions and Automation
+12. SPICE Modeling in KiCad
+13. KiCad Extensions and Automation
 A. Resources
 B. Cheat Sheet
