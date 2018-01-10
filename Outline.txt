@@ -22,8 +22,18 @@
     - Footprint Association
     - Circuit Board Layout
     - Design Rules Check
-    - Plotting Layers
+    - Generating Design Files
+        * Gerber Files
+        * IPC Files
+        * XY Placement Files
 3. KiCad Project Structure
+    - Using Git
+    - Building Robust Projects
+    - Template Design
+    - KiCad Component Libraries Explained
+        * Symbol Library Management
+        * Footprint Library Management
+    - Project Files and Sub-files
 4. Component Symbol Design and Management
 5. Schematic Editor
 6. Footprint Design with KiCad
