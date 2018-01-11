@@ -35,6 +35,23 @@
         * Footprint Library Management
     - Project Files and Sub-files
 4. Component Symbol Design and Management
+    - Libraries, Parts and Aliases
+    - KLC Design Guidlines
+    - Graphic Items
+    - Pins
+        * Pin Names
+        * Pin Numbers
+        * Pin Types
+        * Pin Stacking
+        * Pin Table
+    - Multi-unit Parts
+        * De Morgan Parts
+        * Shared Styles
+    - Field Properties
+        * Footprints
+        * Documentation
+        * Keywords
+    - Tips and Tricks for Common Mistakes
 5. Schematic Editor
 6. Footprint Design with KiCad
 7. Printed Circuit Board Layout
