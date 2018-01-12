@@ -34,7 +34,7 @@
         * Symbol Library Management
         * Footprint Library Management
     - Project Files and Sub-files
-4. Component Symbol Design and Management
+4. Component Symbol Design and Library Management
     - Libraries, Parts and Aliases
     - KLC Design Guidlines
     - Graphic Items
@@ -53,6 +53,11 @@
         * Keywords
     - Tips and Tricks for Common Mistakes
 5. Schematic Editor
+    - Hierarchical Schematics Explained
+    - Understanding the Schematic Editor
+        * Relationship to Symbol Libraries
+        * Project Settings
+    - Adding Parts
 6. Footprint Design with KiCad
 7. Printed Circuit Board Layout
 8. Signal Integrity Design
