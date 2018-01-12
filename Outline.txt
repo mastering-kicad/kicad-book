@@ -58,6 +58,12 @@
         * Relationship to Symbol Libraries
         * Project Settings
     - Adding Parts
+    - Connections
+        * Labels
+        * Junctions
+        * No Connects
+    - Electrical Rules Check
+    - Graphical Elements
 6. Footprint Design with KiCad
 7. Printed Circuit Board Layout
 8. Signal Integrity Design
