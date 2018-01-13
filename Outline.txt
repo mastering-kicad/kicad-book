@@ -59,11 +59,15 @@
         * Project Settings
     - Adding Parts
     - Connections
+        * Wires
+        * Busses
         * Labels
         * Junctions
         * No Connects
+        * Hierarchical Pins
     - Electrical Rules Check
     - Graphical Elements
+    - Templates
 6. Footprint Design with KiCad
 7. Printed Circuit Board Layout
 8. Signal Integrity Design
