@@ -127,7 +127,37 @@
         * Example 2: Dual Layer, Gated Delay Shaping Amplifier
         * Example 3: Mixed Domain Analog/Digital Reward Controller
 8. Signal Integrity Design
-9. Design for Manufacturing
+    - Circuit Design
+        * Noise Issues
+        * Frequency Limits
+        * Grounds
+    - PCB Routing Design
+        * Avoiding Antennas
+        * External vs. Internal Noise Sources
+        * Inductive Coupling
+        * Capacitive Coupling
+        * Trace width and spacing
+            o Current limits
+            o Voltage limits
+            o Special Requirements
+        * Trace angles
+    - Grounding
+        * Ground Planes and Stitching
+        * Split Grounds
+    - PCB Layout Design
+        * Component Grouping
+        * Layer Stackups
+        * Bypass capacitors
+            o Sizing
+            o Type
+            o Placement
+    - External Connections
+        * Power Connections
+        * Signal Connections
+        * Antennae
+    - Signal Integrity Examples
+        * Example 1:
+9. Design for Manufacturing, Design for Testing
 10. Circuit Board Tweaks and Revisioning
 11. Project Design Examples
 12. SPICE Modeling in KiCad
