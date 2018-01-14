@@ -172,10 +172,25 @@
         - JEDEC
         - MILSPEC
     - Tolerances
-        * Trace width / separation
+        * Trace - Trace
+        * Trace - Pad
+        * Pad - Hole
         * Annular ring size
-        * Dri
+        * Drill Sizes
+    - Panelling
+        * Standard Panel Sizes
+        * Tooling Areas
+        * Cores and Prepregs
+        * Copper Cladding Weights and Thicknesses
+    - Soldermask
+        * Vias and tenting
+    - DNP placements
+    - Test points
+    - Teardrops
+    - Thermal Relief
+    - Component Orientation and Spacing
 10. Circuit Board Tweaks and Revisioning
+    -
 11. Project Design Examples
 12. SPICE Modeling in KiCad
 13. KiCad Extensions and Automation
