@@ -69,6 +69,19 @@
     - Graphical Elements
     - Templates
 6. Footprint Design with KiCad
+    - Footprint Types
+        * Through hole
+        * SMD
+        * Virtual
+    - Layers
+    - Pins and Pads
+        * Pad Shapes
+        * Custom Shapes
+        * Masks
+        * Special Pins
+    - Clearance Settings
+    - Thermal Relief
+    - 3d Settings
 7. Printed Circuit Board Layout
 8. Signal Integrity Design
 9. Design for Manufacturing
