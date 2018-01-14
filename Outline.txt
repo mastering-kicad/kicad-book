@@ -121,6 +121,12 @@
         * Push and Shove
         * Updating from Schematic
         * Changing Footprints
+        * Trace cleanup
+    - Special Topics
+        * Designing for Heat Distribution
+        * Transmission Line Trace Length
+        * Blind Vias
+        * Layout arrays
     - Layout Principles
     - PCB Design Examples
         * Example 1: Single Layer Photodiode Amplifier
@@ -156,8 +162,10 @@
         * Signal Connections
         * Antennae
     - Signal Integrity Examples
-        * Example 1:
+        * Example 1: Revising a Design for Signal Integrity
+        * Example 2: Protecting Your Circuit
 9. Design for Manufacturing, Design for Testing
+    -
 10. Circuit Board Tweaks and Revisioning
 11. Project Design Examples
 12. SPICE Modeling in KiCad
