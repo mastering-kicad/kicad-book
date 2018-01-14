@@ -53,6 +53,9 @@
         * Documentation
         * Keywords
     - Tips and Tricks for Common Mistakes
+    - Symbol Design Examples
+        * Example 1: Basic Symbol
+        * Example 2: Heterogenous, Multi-unit Symbol
 5. Schematic Editor
     - Hierarchical Schematics Explained
     - Understanding the Schematic Editor
@@ -69,6 +72,9 @@
     - Electrical Rules Check
     - Graphical Elements
     - Templates
+    - Schematic Editor Examples
+        * Example 1: Single Page Schematic
+        * Example 2: Hierarchical Schematic
 6. Footprint Design with KiCad
     - Footprint Types
         * Through hole
@@ -85,9 +91,9 @@
     - 3d Settings
     - Creating Footprints using Generators
     - Footprint Design Examples
-        * QFN with Exposed Pad
-        * High-Density, Through-hole Connector
-        * Board-Edge Connector
+        * Example 1: QFN with Exposed Pad
+        * Example 2: High-Density, Through-hole Connector
+        * Example 2: Board-Edge Connector
 7. Printed Circuit Board Layout
     - Basic Board Settings
     - Board Layers
@@ -116,6 +122,10 @@
         * Updating from Schematic
         * Changing Footprints
     - Layout Principles
+    - PCB Design Examples
+        * Example 1: Single Layer Photodiode Amplifier
+        * Example 2: Dual Layer, Gated Delay Shaping Amplifier
+        * Example 3: Mixed Domain Analog/Digital Reward Controller
 8. Signal Integrity Design
 9. Design for Manufacturing
 10. Circuit Board Tweaks and Revisioning
