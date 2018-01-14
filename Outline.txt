@@ -83,6 +83,27 @@
     - Thermal Relief
     - 3d Settings
 7. Printed Circuit Board Layout
+    - Basic Board Settings
+    - Board Layers
+        * Layer Pairs
+        * Special Layers
+        * User Layers
+        * Customizing your Layers
+    - Adding Components
+        * Updating from Schematic
+        * Adding Dangling Components
+    - Connecting Components
+        * Netclasses
+        * Wires
+        * Copper Zones
+    - Copper Zones
+        * Spacing
+        * Connections
+            o Solid vs. Thermals
+            o Pads and Antipads
+        * Fill Settings
+        * Keepout Zones
+    - Stitching Zones
 8. Signal Integrity Design
 9. Design for Manufacturing
 10. Circuit Board Tweaks and Revisioning
