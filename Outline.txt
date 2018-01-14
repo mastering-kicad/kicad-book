@@ -189,8 +189,20 @@
     - Teardrops
     - Thermal Relief
     - Component Orientation and Spacing
+    - Soldering Processes
+        * Hand Soldering
+        * Wave Soldering
+        * Reflow Soldering
 10. Circuit Board Tweaks and Revisioning
-    -
+    - Version Tracking
+        * git and KiCad
+    - Resizing
+    - Swapping Parts
+    - Reducing Complexity
+        * Layer Reduction
+        * Component Count Reduction
+        * Routing Simplification
+        * Via Minimization
 11. Project Design Examples
 12. SPICE Modeling in KiCad
 13. KiCad Extensions and Automation
