@@ -205,6 +205,11 @@
         * Via Minimization
 11. Project Design Examples
 12. SPICE Modeling in KiCad
+    - Getting SPICE working
+    - Adding Sources
+    - Simulating Analog Systems
+    - Simulating Transmission Lines
+    - Including Vendor Models
 13. KiCad Extensions and Automation
 A. Resources
 B. Cheat Sheet
