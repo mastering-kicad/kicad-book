@@ -91,6 +91,7 @@
         * Customizing your Layers
     - Adding Components
         * Updating from Schematic
+        * Placement and Rotation
         * Adding Dangling Components
     - Connecting Components
         * Netclasses
@@ -104,6 +105,11 @@
         * Fill Settings
         * Keepout Zones
     - Stitching Zones
+    - Revising
+        * Push and Shove
+        * Updating from Schematic
+        * Changing Footprints
+    - Layout
 8. Signal Integrity Design
 9. Design for Manufacturing
 10. Circuit Board Tweaks and Revisioning
