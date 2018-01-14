@@ -118,6 +118,7 @@
         * Keepout Zones
     - Stitching Zones
     - Revising
+        * Locking Items
         * Push and Shove
         * Updating from Schematic
         * Changing Footprints
@@ -165,7 +166,15 @@
         * Example 1: Revising a Design for Signal Integrity
         * Example 2: Protecting Your Circuit
 9. Design for Manufacturing, Design for Testing
-    -
+    - Standards
+        - IPC
+        - IEC
+        - JEDEC
+        - MILSPEC
+    - Tolerances
+        * Trace width / separation
+        * Annular ring size
+        * Dri
 10. Circuit Board Tweaks and Revisioning
 11. Project Design Examples
 12. SPICE Modeling in KiCad
