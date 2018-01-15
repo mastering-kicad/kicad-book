@@ -204,6 +204,15 @@
         * Routing Simplification
         * Via Minimization
 11. Project Design Examples
+    - Example 1: 4-Channel Communications Card
+        * Schematic Setup
+        * Design Requirements
+    - Example 2: Nanosecond LED Pulser
+        * Schematic Setup
+        * Design Requirements
+    - Example 3: 8-Channel Ultra low-noise Shaping Amplifier
+        * Schematic Setup
+        * Design Requirements
 12. SPICE Modeling in KiCad
     - Getting SPICE working
     - Adding Sources
