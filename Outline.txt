@@ -1,4 +1,4 @@
-1. Introduction to CAD
+1. Introduction to KiCad
     - Circuit design
     - Prototyping
     - Printed circuit boards
@@ -211,5 +211,12 @@
     - Simulating Transmission Lines
     - Including Vendor Models
 13. KiCad Extensions and Automation
+    - pcbnew Scripting
+    - Action Scripting
+    - 3D Model Export
+    - Useful Scripts
+        * KiCost
+        * KiCad StepUp
+        * Panelize
 A. Resources
 B. Cheat Sheet
