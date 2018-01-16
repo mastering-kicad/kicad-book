@@ -1,0 +1,43 @@
+\documentclass{tufte-book}
+
+\title{Mastering KiCad Version 5.0\thanks{Thanks to all the KiCad developers for their tireless efforts.}}
+\author[Seth Hillbrand]{Seth~Hillbrand}
+\publisher{}
+
+\input{prefix.tex}
+
+\makeindex
+
+\begin{document}
+\input{front-matter}
+\cleardoublepage
+\chapter*{Introduction}
+
+
+
+\mainmatter
+
+\input{"chapter1/Introduction to KiCad.tex"}
+\input{"chapter2/KiCad Design Workflow.tex"}
+\input{"chapter3/KiCad Project Structure.tex"}
+\input{"chapter4/Component Symbol Design and Library Management.tex"}
+\input{"chapter5/Schematic Editor.tex"}
+\input{"chapter6/Footprint Design with KiCad.tex"}
+\input{"chapter7/Printed Circuit Board Layout.tex"}
+\input{"chapter8/Signal Integrity Design.tex"}
+\input{"chapter9/Design for Manufacturing, Design for Testing.tex"}
+\input{"chapter10/Circuit Board Tweaks and Revisioning.tex"}
+\input{"chapter11/Project Design Examples.tex"}
+\input{"chapter12/SPICE Modeling in KiCad.tex"}
+
+
+\backmatter
+
+\bibliography{kicad}
+\bibliographystyle{plainnat}
+
+
+\printindex
+
+\end{document}
+
