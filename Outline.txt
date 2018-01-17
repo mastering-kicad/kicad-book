@@ -28,6 +28,10 @@
         * XY Placement Files
 3. KiCad Project Structure
     - Using Git
+        * Version Control Basics
+        * Local vs. Remote
+        * Shallow Copies
+        * Personal Libraries
     - Building Robust Projects
     - Template Design
     - KiCad Component Libraries Explained
@@ -194,8 +198,6 @@
         * Wave Soldering
         * Reflow Soldering
 10. Circuit Board Tweaks and Revisioning
-    - Version Tracking
-        * git and KiCad
     - Resizing
     - Swapping Parts
     - Reducing Complexity
