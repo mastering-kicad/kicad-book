@@ -2,7 +2,31 @@
 
 \chapter{Schematic Editor}
 
+The first step in every project is schematic capture.
+If this term is unfamiliar, we are referring to the process of laying out the components and connections between them in logical, well-defined fashion.
+You may have only the barest idea of the circuit aspects or you may have the major aspects already sketched on paper;
+whatever your situation, transferring the schematic into KiCad begins with the Schematic Editor.
+
+Before we dive into the simplistic aspects of the schematic editor, it will pay us dividends later to properly understand how the schematic editor views more complex schematics.
+This will allow you to structure the schematic in your mind more closely to how Schematic Editor expects.
+
 \section{Hierarchical Schematics Explained}
+
+The basic, underlying paradigm of the Schematic Editor is the idea of \textit{hierarchical schematics}.
+If the overall schematic represents the full circuit that will exist on the circuit board at the end of production, then the hierarchy provides a logical grouping of similar component sets.
+This allows you to reuse common subsets throughout your design.
+The hierarchy also explicitly structures your schematics as a top-down tree.
+
+At the root of the tree, is the first schematic sheet you open, usually with the same name as your project and the extension `\textbf{.sch}'.
+Off of this root, you can create \textit{sub-sheets} that are placed in the root sheet.
+The sub-sheet has both a ``File name'' and a ``Sheet name''.
+The File name is the name of the sub-sheet on the underlying filesystem.
+This is the name you will see if you open your project folder outside of KiCad.
+The Sheet name is the internal reference of the specific \textit{instance} of the sub-sheet in KiCad.
+\begin{figure}
+	\includegraphics{chapter5/subsheet.png}
+	\caption[Sub-Sheets]{The subsheet dialog specifies the file name, sheet name and a unique timestamp.}
+\end{figure}
 
 \section{Understanding the Schematic Editor}
 \subsection{Relationship to Symbol Libraries}
