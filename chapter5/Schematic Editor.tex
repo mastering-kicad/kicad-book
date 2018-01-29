@@ -35,21 +35,33 @@ This will be useful when we begin discussing design reuse in section \ref{sec:re
 
 \section{Understanding the Schematic Editor}
 \begin{figure*}
-    \begin{tikzpicture}
-    \node [anchor=west] (note) at (-1,3) {\Large Note};
-    \node [anchor=west] (water) at (-1,1) {\Large Water};
-    \begin{scope}[xshift=0.5cm]
-        \node[anchor=south west,inner sep=0] (image) at (0,0) {\includegraphics[width=4.5in]{chapter5/eeschema-main.png}};
+    \begin{tikzpicture}[baseline]
+    \begin{scope}
+        \node[anchor=south west,inner sep=0] (image) at (0,0) 
+        	{\includegraphics[width=4.5in]{chapter5/eeschema-main.png}};
         \begin{scope}[x={(image.south east)},y={(image.north west)}]
+            \node [anchor=south] (file) at (0.08,1.0) {\Large File\strut };
+            \node [anchor=south] (edit) at (0.2575,1.0) {\Large Edit\strut };
+            \node [anchor=south] (zoom) at (0.438,1.0) {\Large Zoom\strut };
+            \node [anchor=south] (app) at (0.763,1.0) {\Large Applications\strut };
+            \node [anchor=north, rotate=90] (tools) at (1.0,0.5) {\Large Schematic Tools};
+            
             \draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
-            \draw[red,thick,rounded corners] (0.38,0.90) rectangle (1.55,1.0);
-            \draw [-latex, ultra thick, red] (note) to[out=0, in=-120] (0.48,0.80);
-            \draw [-stealth, line width=5pt, cyan] (water) -- ++(0.4,0.0);
+            \draw[red,thick,rounded corners] (0.0,0.923) rectangle (0.16,0.97);
+            \draw[red,thick,rounded corners] (0.165,0.923) rectangle (0.35,0.97);
+            \draw[red,thick,rounded corners] (0.351,0.923) rectangle (0.525,0.97);
+            \draw[red,thick,rounded corners] (0.526,0.923) rectangle (1.0,0.97);
+            \draw[black!80,thick, dashed, rounded corners] (0.961,0.92) rectangle (1.0,0.10);
+            \draw [-latex, thick, red] (file.base) -- ++(0,-0.05);
+            \draw [-latex, thick, red] (zoom.base) -- ++(0,-0.05);
+            \draw [-latex, thick, red] (view.base) -- ++(0,-0.05);
+            \draw [-latex, thick, red] (app.base) -- ++(0,-0.05);
+            \draw [-latex, ultra thick, dashed, black!80] (tools.east) to[out=90, in=-20] (1.0,0.85);
         \end{scope}
     \end{scope}
     \end{tikzpicture}
 	
-	\caption[Eeschema]{The Eeschema main window}
+	\caption[Eeschema]{The Eeschema main window.  Control buttons on the top}
 \end{figure*}
 \subsection{Relationship to Symbol Libraries}
 \subsection{Project Settings}
