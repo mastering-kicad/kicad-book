@@ -2,10 +2,39 @@
 
 \chapter{Footprint Design with KiCad}
 
+Through a dedicated team of volunteer librarians, KiCad provides an incredible assortment of footprints.
+Sometimes, however, you will find that you need a footprint that does not yet exist in the provided libraries.
+Or, worse, the provided footprint isn't exactly what you need to match your build requirements.
+For these cases, KiCad provides an extremely powerful, if not terribly intuitive, footprint design program.
+
 \section{Footprint Types}
+In this chapter, we will walk you through the basics of footprint design for surface mount components (SMDs), through-hole components (THTs) and virtual components\sidenote{Virtual components are elements that exist only on the board itself.  
+Examples include antennas that are printed into the copper cladding and connector fingers on the board edge}.
+
 \subsection{Through hole}
+
+Through hole components are ubiquitous, easy to work with, easy to replace and easy to debug.  
+For these reasons, through hole components are often the first element designers reach for when building a simple circuit.  
+One downside, however is that through-hole components are physically large.  
+They need to leave enough room to have a hole that goes through the circuit board, the annular ring around the hole and then clearance to the next hole.
+This limits their usability in small spaces and at high frequencies.
+
+A second downside is that, because the connection pin extends through the full circuit board, it places on a barrier for any traces on layers under the pin.  
+With may through hole components placed closely together, the barrier can be substantial and set up `walls' that impede ground planes and signal traces.
+
 \subsection{SMD}
+
+Surface mount components overcome many of the shortcomings of THT components by making the electrical contact points flat pins or plates that are soldered to exposed pads on the circuit board.
+SMDs are also ubiquitous but are harder to work with, harder to replace and harder to debug.
+All of these drawbacks are the result of SMDs addressing the major shortcoming of the THT components: their size.
+SMD components are almost arbitarily small and can fit a dizzying number of connections inside of a very small package.
+
+
 \subsection{Virtual}
+
+Virtual components can be extremely useful when used properly.
+They rely on using the physical properties of the cladding to acheive a specific result in your circuit.
+Whether this is designing a 0.1pF capacitor, creating an on-board antenna or placing edge fingers to connect your circuit board
 
 \section{Layers}
 
