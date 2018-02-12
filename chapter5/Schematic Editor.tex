@@ -29,11 +29,20 @@ This is the name you will see if you open your project folder outside of KiCad.
 The Sheet name is the internal reference of the specific \textit{instance} of the sub-sheet in KiCad.
 
 One of the primary benefits of this setup is the ability to organize the relationship between subsheets.
-It can also allow you to create and re-use common elements between projects.
+Instead of utilizing global net labels to connect disparate elements between sheets, you can use hierarchical subsheets layout the explicit connection between schematic elements.
+
+It can also allow you to create and re-use common elements through and between projects.
 This will be useful when we begin discussing design reuse in section \ref{sec:reuse}.
 
 
+
 \section{Understanding the Schematic Editor}
+
+When you first open the schematic editor, you are presented with a blizzard of information.
+In KiCad, the majority of functions are accessed using buttons and hotkeys.
+Unlike many programs, where functionality is often buried in sub-menus, KiCad prefers to expose its controls up front.
+This has the benefit of providing easy access to virtually all commands, and the drawback of an overwhelming first impression.
+
 \begin{figure*}
     \begin{tikzpicture}[baseline]
     \begin{scope}
@@ -66,8 +75,17 @@ This will be useful when we begin discussing design reuse in section \ref{sec:re
     \end{scope}
     \end{tikzpicture}
 	
-	\caption[Eeschema]{The Eeschema main window.  Control buttons on the top}
+	\caption[fig:eeschema]{The Eeschema main window.  Control and execution buttons are on the top, options buttons are in the left vertical bar and tools buttons are in the right vertical bar. }
 \end{figure*}
+
+Looking at the Eeschema window in Figure \ref{fig:eeschema}, you can see this division.
+The ``Display Options'' toolbar on the left consists of buttons and are either enabled or disabled, depending on your working preferences.
+The first icon is a grid and controls whether the grid dots are shown on the schematic or not.
+Note that this does not change whether your elements snap to the grid; this is always enabled for Eeschema.
+
+\includesvg{grid.svg}
+
+
 \subsection{Relationship to Symbol Libraries}
 \subsection{Project Settings}
 

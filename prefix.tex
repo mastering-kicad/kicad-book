@@ -35,6 +35,18 @@
 
 \usepackage{xspace}
 
+\usepackage{ifluatex}
+\ifluatex
+  \usepackage{pdftexcmds}
+  \makeatletter
+  \let\pdfstrcmp\pdf@strcmp
+  \let\pdffilemoddate\pdf@filemoddate
+  \makeatother
+\fi
+\usepackage{svg}
+\svgpath{{graphics/icons/}}
+\setsvg{inkscapeexe="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"}
+\setsvg{inkscapeopts="-z -C"}
 
 % Prints the month name (e.g., January) and the year (e.g., 2008)
 \newcommand{\monthyear}{%
