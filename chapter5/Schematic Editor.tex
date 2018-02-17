@@ -80,11 +80,57 @@ This has the benefit of providing easy access to virtually all commands, and the
 
 Looking at the Eeschema window in Figure \ref{fig:eeschema}, you can see this division.
 The ``Display Options'' toolbar on the left consists of buttons and are either enabled or disabled, depending on your working preferences.
+
+\newpage
+\begin{marginfigure}
+	\tcbset{nobeforeafter}
+	\hfill\iconbox{\includesvg[width=7.5mm]{grid.svg}}
+	\hfill\;
+	\caption{Enable/Disable Grid Button}
+\end{marginfigure}
 The first icon is a grid and controls whether the grid dots are shown on the schematic or not.
 Note that this does not change whether your elements snap to the grid; this is always enabled for Eeschema.
 
-\includesvg{grid.svg}
+\begin{marginfigure}
+	\tcbset{nobeforeafter}
+	\hfill\iconbox{\includesvg[width=7.5mm]{unit_inch.svg}}
+	\hfill\iconbox{\includesvg[width=7.5mm]{unit_mm.svg}}
+	\hfill\;
+	\caption{Units Selection Buttons}
+\end{marginfigure}
+The next two icons select either imperial (inch and mil) or metric (millimeter) units for the dimensions.  
+When selecting one of these icons, you don't change the grid size, just the representation.
+Note that while you can change the representation of the grid size, you cannot change the base unit.
+That is to say, the grid is always in units of mil (thousandth of an inch) and their multiples.
+This is an historical artifact of the underlying schematic format.
+\sidenote{Originally, Eeschema and Pcbnew used similar file formats.  
+When they were designed in the early 1990s, the vast majority of components were only available in imperial pitch.
+Therefore it made sense to have the base unit be the mil.
+This limitation no longer exists for pcbnew and there are plans in the works to change it for Eeschema in version 6.}
 
+\begin{marginfigure}
+	\tcbset{nobeforeafter}
+	\hfill\iconbox{\includesvg[width=7.5mm]{cursor_shape.svg}}
+	\hfill\;
+	\caption{Cursor Shape Buttons}
+\end{marginfigure}
+The next icon selects the cursor shape for Eeschema.
+Enabling this button will change the cursor shape to a cross-hair whose whiskers extend across the canvas.
+\sidenote{This option is not available on the MacOS version.}
+
+
+\begin{marginfigure}
+	\tcbset{nobeforeafter}
+	\hfill\iconbox{\includesvg[width=7.5mm]{hidden_pin.svg}}
+	\hfill\;
+	\caption{Show Hidden Pins Buttons}
+\end{marginfigure}
+Eeschema allows pins to be hidden on components.
+Hidden pins are useful for multiple pins that share functions and pins that are not meant to be connected\cite{http://kicad-pcb.org/libraries/klc/S4.6/}.
+Historically, hidden pins were also used for common connection pins such as \textbf{VCC} or \textbf{GND}.
+This caused many issues as Eeschema connects hidden pins to wires that cross them, so users would sometimes find their netlist cross-linked by a wire that inadvertently crossed a hidden pin.
+While new library symbols in the official distribution have explicitly separated the hidden connection pins per KLC4.6, there exist some historical symbols, notably in the \textit{Logic\_TTL\_IEEE} and \textit{Logic\_74xgxx} libraries that have not be updated to the new standard.
+Selecting this view option is a good way to verify you haven't been caught by this particular issue
 
 \subsection{Relationship to Symbol Libraries}
 \subsection{Project Settings}
