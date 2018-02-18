@@ -48,7 +48,7 @@
 \setsvg{inkscapeexe="/Applications/Inkscape.app/Contents/Resources/bin/inkscape"}
 
 \usepackage[most]{tcolorbox}
-\newtcbox{\iconbox}{colback=orange!10, colframe=orange!50,left=0mm,right=0mm,top=0mm,bottom=0mm,height=1cm,width=1cm,valign=center,arc=0mm,boxrule=0.5pt}
+\newtcbox{\icontcbox}{colback=orange!10, colframe=orange!50,left=0mm,right=0mm,top=0mm,bottom=0mm,height=6ex,width=6ex,valign=center,arc=0mm,boxrule=0.5pt}
 
 % Prints the month name (e.g., January) and the year (e.g., 2008)
 \newcommand{\monthyear}{%
@@ -57,8 +57,18 @@
   December\fi\space\number\year
 }
 
+\setlength{\parskip}{1em}
+
+\usepackage{menukeys}
+
 \newcommand{\blankpage}{\newpage\hbox{}\thispagestyle{empty}\newpage}
 
+\newcommand\iconbox[1]{\icontcbox{\includesvg[width=4ex]{#1}}}
+\newcommand\iconstart[1]{\noindent\smash{\lower4ex\hbox{\llap{\iconbox{#1}}}\hskip+0.1em}
+  \parshape=3 1.25em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-1em 0.5pt \hsize}
+\newcommand\iconstarts[2]{\noindent\smash{\lower4ex\hbox{\llap{\iconbox{#1}}}\lower10ex\hbox{\llap{\iconbox{#2}}}\hskip+0.1em}
+  \parshape=6 1.25em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-2em 0pt \hsize 0pt \hsize}
+  
 % Macros for typesetting the documentation
 \newcommand{\hlred}[1]{\textcolor{Maroon}{#1}}% prints in red
 \newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
