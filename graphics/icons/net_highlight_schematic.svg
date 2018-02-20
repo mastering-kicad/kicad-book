@@ -11,7 +11,7 @@
    width="26"
    version="1.1"
    id="svg2"
-   inkscape:version="0.92.0 r15299"
+   inkscape:version="0.48.5 r10040"
    sodipodi:docname="net_highlight_schematic.svg"
    shape-rendering="crispEdges">
   <metadata
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -41,14 +41,16 @@
      showgrid="true"
      inkscape:snap-to-guides="false"
      inkscape:snap-grids="true"
-     inkscape:zoom="32.472518"
-     inkscape:cx="10.481867"
-     inkscape:cy="12.648642"
+     inkscape:zoom="8"
+     inkscape:cx="45.320424"
+     inkscape:cy="3.0826044"
      inkscape:window-x="261"
      inkscape:window-y="175"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2"
-     inkscape:snap-text-baseline="false">
+     inkscape:snap-text-baseline="false"
+     showguides="true"
+     inkscape:guide-bbox="true">
     <inkscape:grid
        type="xygrid"
        id="grid3017"
@@ -58,6 +60,10 @@
        snapvisiblegridlinesonly="true"
        spacingx="1"
        spacingy="1" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-7.375,29.125"
+       id="guide2991" />
   </sodipodi:namedview>
   <defs
      id="defs4" />
@@ -79,17 +85,6 @@
      id="path3764-6"
      d="m 6.5076569,4.490333 0,12.045379"
      style="fill:#c2c2c2;fill-opacity:1;stroke:#bebebe;stroke-width:2.98596144;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-  <g
-     transform="matrix(1.6382539,0,0,1.5572263,32.714507,1.595972)"
-     id="g16-7">
-    <rect
-       height="16"
-       width="16"
-       y="0"
-       x="0"
-       id="rect18-5"
-       style="fill-opacity:0" />
-  </g>
   <path
      sodipodi:nodetypes="cc"
      inkscape:connector-curvature="0"
