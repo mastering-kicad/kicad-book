@@ -125,19 +125,95 @@ You can also double-click on items using this tool to edit their properties.
 Finally you can select groups of items using a click and drag function.
 
 The select group function in Eeschema works differently than other graphical editing programs you may use.
-In other programs, you select the items and then choose an action to perform on the group.
+In other programs, you first select the items and then choose an action to perform on the group.
 In KiCad, you choose the default action \textit{before} you select the items.
 
-With no keys held down while clicking and dragging, Eeschema will begin a \textbf{move} action on the group as soon as you release the mouse button.
-If you hold down \keys{Shift} before starting to click and drag, Eeschema will begin a \textbf{duplicate} action on the group as soon as you release the mouse button.
-If you hold down \keys{Ctrl} before starting to click and drag, Eeschema will begin a \textbf{drag} action on the group as soon as you release the mouse button.
+The default action is to \textbf{move} a group of schematic items.
+With no keys held down while clicking and dragging, Eeschema will begin a \textbf{move} on the group as soon as you release the mouse button.
 
-\iconstart{net_highlight_schematic.svg}\textsc{Highlight} tool allows you to 
+Holding down \keys{\shift} \textit{before} starting to click and drag will cause Eeschema to begin a \textbf{duplicate} action on the group as soon as you release the mouse button.
+
+Holding down \keys{\ctrl} (\keys{\cmd} on MacOS) before starting to click and drag will begin a \textbf{drag}
+	\sidenote{\textbf{Drag} maintains wire connections while moving the items. 
+		\textbf{Move} will disconnect wires.} 
+action on the group as soon as you release the mouse button.
+You can also convert a \textbf{move} action into a \textbf{drag} action by typing \keys{Tab} during a move action.
+
+Holding down \keys{\Alt}
+	\sidenote{
+		Many window managers in Linux will capture \keys{\Alt}+click actions before they reach Eeschema.  
+		If yours is one of them (Gnome, XFWM, KDE), then you will not have access to the shortcut
+		}
+before clicking and dragging will cause the selected block of items to be \textbf{rotated} as soon as you release the mouse button.
+
+Holding down \keys{\ctrl+\shift} before clicking and dragging will delete all items selected in the block as soon as you release the mouse button.
+
+\iconstart{net_highlight_schematic.svg}\textsc{Highlight} tool allows you to see all connections to the selected net when clicking on a wire or pin
+	\sidenote{As currently implemented in KiCad 5.0, this command will create a new netlist each time you click on the schematic.
+		For more complex schematics, this may result in a noticeable delay between clicking on an element and the resulting net being highlighted.
+		}.
+This action will also pass a highlight net command to the Pcbnew window if it is open.
+
+\iconstart{add_component.svg}\textsc{Add Component} brings up the Symbol Chooser dialog to add a new component to your schematic.
+
+\iconstart{add_power.svg}\textsc{Add Power} brings up the same Symbol Chooser dialog as \textbf{Add Component}.
+The \textbf{Add Power} dialog list includes only symbols that mark a power supply net
+	\sidenote{Note that the default shortcut key for \textbf{Add Power} is \keys{P}.
+		Other schematic capture programs use this shortcut to mean \textbf{P}lace Component.
+		Eeschema's default shortcut key to add a new component is \textbf{A}.
+	}.
+
+\iconstart{add_line.svg}\textsc{Add Wire} starts a new electrical connection between two points on a schematic.
+
+\iconstart{add_bus.svg}\textsc{Add Bus} starts a new electrical connection between multiple nets on a schematic.
+
+\iconstart{add_line2bus.svg}\textsc{Add Net-to-Bus} lets you place connection points from a bus that connect to wires.
+One end of these connections must be placed on a bus and the other must be placed on a wire for the connection to be made.
+
+\iconstart{add_bus2bus.svg}\textsc{Add Bus-to-Bus} lets you split out elements of one bus into another.
+
+\iconstart{noconn.svg}\textsc{Add No Connect} places a no connect flag on a pins that are intentionally not connected to a net.
+Normally, unconnected pins indicate a mistake.
+Setting the No Connect flag tells Eeschema that you (probably) did not make a mistake and you do not want the pin connected to a net.
+
+\iconstart{add_junction.svg}\textsc{Add Junction} places a junction dot on your schematic.
+Junctions indicate that two nets or busses should be connected where they cross in the schematic.
+Junctions are automatically added to a schematic when you draw a wire that ends on another wire\sidenote{Junctions are also created when bus endpoints are placed on an existing bus.}.
+Junctions are also added when you place a component pin over a wire.
+At each junction, the wire is broken into two segments.
+
+\iconstart{add_line_label.svg}\textsc{Add Local Label} adds a label that exists only on the current schematic sheet and does not traverse the hierarchy.
+
+\iconstart{add_hierarchical_label.svg}\textsc{Add Hierarchical Label} adds a label that extends one level \textit{up} in the hierarchy.
+
+\iconstart{add_glabel.svg}\textsc{Add Global Label} adds a label that exists for all sheets in the schematic.
+
+\iconstart{add_hierarchical_subsheet.svg}\textsc{Add New Sub-sheet} allows you to create a new sub-sheet in the existing schematic.
+
+\iconstart{add_hierar_pin.svg}\textsc{Place Hierarchical Pin} inserts a hierarchical pin that isn't yet defined into an existing sub-sheet.
+
+\iconstart{import_hierarchical_label.svg}\textsc{Extract Hierarchical Pin} extracts existing hierarchical pins that are currently defined in the sub-sheet.
+
+\iconstart{add_dashed_line.svg}\textsc{Place Graphical Line} allows you to draw graphical lines on the schematic.
+Graphical lines are drawn in their default mode (blue, dashed, 1.27mm).
+You can edit existing graphical lines to change these values.
+
+\iconstart{text.svg}\textsc{Place Text} puts non-functional text on a schematic.
+
+\iconstart{image.svg}\textsc{Insert Image} allows you to add images\sidenote{Currently, the only images that can be inserted into a schematic are bitmaps.  Therefore, if you want to insert an SVG or PDF, you will first need to convert it to a PNG, JPG or similar file.} to your schematic.
+
+\iconstart{delete.svg}\textsc{Delete} allows you to remove items from the schematic by clicking on them.
 
 \subsection{Relationship to Symbol Libraries}
+
 \subsection{Project Settings}
 
 \section{Adding Parts}
+
+The first step in creating your schematic is inserting the parts needed to make the thing work.
+Whether you know the exact parts you want at the start or you only have an outline of the system, placing the components on a blank canvas is lets you begin to organize your thoughts into a systematic layout.
+
+
 
 \section{Connections}
 \subsection{Wires}
