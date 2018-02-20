@@ -212,6 +212,23 @@ You can edit existing graphical lines to change these values.
 
 The first step in creating your schematic is inserting the parts needed to make the thing work.
 Whether you know the exact parts you want at the start or you only have an outline of the system, placing the components on a blank canvas is lets you begin to organize your thoughts into a systematic layout.
+Whether the design is a personal project or you are working as part of a larger team, it is always in your best interest to lay out your system neatly and document well.
+
+Documentation in a schematic takes a number of different forms.
+The first and most important step in documentation is to ensure that your components have a full Manufacturer Part Number or \textbf{MPN} assigned to them.
+The \textbf{MPN} is sometimes different from the \textbf{Value} field in the Symbol Properties.
+In a unique component, the value might be the same as the manufacturer.
+But with most components such as in Figure \ref{fig:symbprop}, the value captures a basic, ideal component.
+The MPN encodes all of the properties of the component; the footprint, the voltage rating, the temperature rating, etc.
+\begin{figure}
+	\includegraphics{chapter11/6-EditSymbolFinished.png}
+	\caption[fig:symbprop]{Editing the Symbol Properties}
+\end{figure}
+
+It is a good idea to add the MPN to each part while you are building the circuit.
+This ensures that your schematic matches the reality of which parts are available to you.
+Often, if you design a schematic without MPN, you will find at the end that you need to substitute a number of components due to availability issues, incompatibility or other problems.
+Replacing components in complex circuits can often have knock-on effects when the changes cascade from one system to the next.
 
 
 
