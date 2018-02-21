@@ -229,10 +229,22 @@ It is a good idea to add the MPN to each part while you are building the circuit
 This ensures that your schematic matches the reality of which parts are available to you.
 Often, if you design a schematic without MPN, you will find at the end that you need to substitute a number of components due to availability issues, incompatibility or other problems.
 Replacing components in complex circuits can often have knock-on effects when the changes cascade from one system to the next.
+When and where you choose to add 
 
+When adding parts, I like to think in terms of groupings.
+These groups of components are natural starting points for subsheets in a schematic.
+Most boards will have some input and some output.
+The input might be external connections or a board mounted sensor or user buttons.
+The output might likely be external connections or a display or a motor.
 
+Whatever the inputs and outputs, I find it useful to group these sections separately and add the components to them individually.
+In each sheet, I will add components in a roughly circular pattern around a central component.
+Often, sheets will have one or two of these `pools' of component groupings.
 
 \section{Connections}
+
+Once you have your components in place on your schematic, you'll need to tell Eeschema how you would like them to connect.
+
 \subsection{Wires}
 \subsection{Busses}
 \subsection{Labels}
