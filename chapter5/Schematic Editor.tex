@@ -244,8 +244,31 @@ Often, sheets will have one or two of these `pools' of component groupings.
 \section{Connections}
 
 Once you have your components in place on your schematic, you'll need to tell Eeschema how you would like them to connect.
+Connections can be made directly pin-to-pin\sidenote{Most designers will only use this sort of shortcut in the case of a power pin; either voltage supply or ground reference.} or via an intermediate wire.
+Connections can also be implied by the use of labels to denote which wires are electrically connected without being graphically connected.
+
+There is no hard and fast rule for how to lay out the connections between pins.
+Just as there are no rules set in stone for how one should construct a sentence or paragraph or novel.
+But just as there are novels that are enjoyable and those that are not, so too are there schematics that are informative, enlightening and helpful.
+And those that are not.
+
+General do-rules for good schematic design
+\begin{enumerate}
+\item Group schematic items by function.
+\item Use global power labels for power connections.
+\item Label any wire that goes between active components.
+\item Use busses for groups of functionally related connections.
+\item Use symmetry when laying out similar parts and functions.
+\end{enumerate}
+
+General do-\textbf{not}-rules for good schematic design
+\begin{enumerate}
+\item Do not cross wires more than absolutely necessary.
+\item Do not be cramped.
+\end{enumerate}
 
 \subsection{Wires}
+
 \subsection{Busses}
 \subsection{Labels}
 \subsection{Junctions}
