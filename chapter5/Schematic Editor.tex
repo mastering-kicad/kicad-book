@@ -263,15 +263,104 @@ General do-rules for good schematic design
 
 General do-\textbf{not}-rules for good schematic design
 \begin{enumerate}
-\item Do not cross wires more than absolutely necessary.
+\item Do not cross unconnected wires more than absolutely necessary.
 \item Do not be cramped.
+\item Do not draw wires that are not horizontal, vertical or 45$^{\circ}$. 
 \end{enumerate}
 
 \subsection{Wires}
 
+Wires form the basic connections in KiCad.
+Any two points on the schematic with a wire between them are connected to the same net in the netlist.
+
+\begin{figure}
+	\includegraphics{chapter5/3-multiple-wires.png}
+	\caption[fig:multiple-wires]{The wires form an electrical connection between pins 11, 2 and the ground symbol.}
+\end{figure}
+
 \subsection{Busses}
+
+Busses are similar to wires in that they can connect signals.
+The key difference is the busses can carry multiple signals in a single line.
+
+KiCad treats busses slightly differently than other schematic capture programs.
+Busses in KiCad can only be used to connect numbered signals.
+Specifically, the numbered signals need to follow the convention \textsc{NAME}\textbf{X} where \textsc{NAME} is the signal name and \textbf{X} is the signal number.
+Examples of correct signal numbering for KiCad are \textsc{DIO1}, \textsc{DIO2}, \textsc{DIO3}.
+Signal names that cannot be bussed are \textsc{SCK}, \textsc{SDI}, \textsc{SDO}.
+You also cannot bus signals like \textsc{CS0}, \textsc{SPI1}, \textsc{SPC2}
+
 \subsection{Labels}
+
+Labels act as implicit connections between points on the schematic.  
+Labels can be attached to wires, pins and busses.
+
+When placed on a wire or a pin, the label will assign a name to the electrical connection.
+Placing the same label on a second wire or pin will connect the first and the second.
+
+There are three types of labels in KiCad.
+They differ in their scope as well as their precedence.
+
+\begin{marginfigure}
+	\includegraphics{chapter5/4-multiple-labels.png}
+	\caption[Local Labels]{
+		Two local labels are joined by a single wire.  
+		They both connect to the same named net.
+		The net name is decided by label precedence.
+	}
+	\label{fig:locallabels}
+\end{marginfigure}
+The most basic and lowest precedence label is the local label shown in Figure \ref{fig:locallabels}.
+This label appears as unadorned text.
+Wires can connect using these labels only on the same schematic sheet.
+You can reuse local label names across different sheets and hierarchy levels without connecting the wires.
+
+In Figure \ref{fig:locallabels}, the net will be named according to alphabetical order if there are no other labels connected.
+Therefore, in the netlist, this net will be referred to as '\textbf{a\_label}'.
+
+\begin{marginfigure}
+	\includegraphics{chapter5/5-hlabel-types.png}
+	\caption[Hierarchical Labels]{
+		The five graphical types of hierarchical labels are shown here.
+	}
+	\label{fig:hlabel-types}
+\end{marginfigure}
+The next type of label in precedence is called a Hierarchical Label.
+Hierarchical labels connect both signals on the same schematic sheet as well as those signals in the hierarchy?s parent schematic sheet.
+
+To create a hierarchical label, you must link both the parent sheet and its child sheet together with the same label name.
+This is done by first creating the hierarchical label in the child sheet (Hotkey default: \textbf{H}) and then, using the ``Import Hierarchical Pin?? tool, clicking on the child?s sheet from within the parent sheet.
+
+\begin{marginfigure}
+	\includegraphics{chapter5/6-glabel-types.png}
+	\caption[Global Labels]{
+		The five graphical types of global labels are shown here.
+		Note that there is no inherent difference in the type of label other than symbol.
+		The symbol is a graphical reminder of what type of signal is used at that point in the schematic.
+	}
+	\label{fig:glabel-types}
+\end{marginfigure}
+The global labels are similar in appearance to the hierarchical labels.
+They exist at the highest precedence in the schematic.
+The net name can only be used for a single network in the entire schematic and will overwrite other netnames where it is connected to them.
+
 \subsection{Junctions}
+\begin{marginfigure}
+	\includegraphics{chapter5/7-junctions.png}
+	\caption[Wires with and without a junction]{
+		The junction shown connects the two wires.
+		Otherwise, they will form two distinct nets.
+	}
+	\label{fig:junctions}
+\end{marginfigure}
+A junction connects two wires into a single net.
+Wires that merely touch as shown in the top of Figure \ref{fig:junctions} will not connect to the same net.
+Adding a junction to the point where the pins connect will join the wires together in the same net.
+
+At each junction, a wire is broken into two segments (before and after the junction).
+
+
+
 \subsection{No Connects}
 \subsection{Hierarchical Pins}
 
