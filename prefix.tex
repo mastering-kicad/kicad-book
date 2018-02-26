@@ -4,6 +4,7 @@
 \setsansfont[Renderer=Basic, Scale=0.90]{Lato Regular}
 \setmonofont[Renderer=Basic, Scale=0.80]{Cousine}
 
+\setcounter{secnumdepth}{2}
 \usepackage{tikz}
 \usepackage{microtype}
 \usepackage{booktabs}
@@ -69,6 +70,14 @@
 \newcommand\iconstarts[2]{\noindent\smash{\lower4ex\hbox{\llap{\iconbox{#1}}}\lower10ex\hbox{\llap{\iconbox{#2}}}\hskip+0.1em}
   \parshape=6 1.25em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-1.75em 1.75em \dimexpr\hsize-2em 0pt \hsize 0pt \hsize}
   
+\titleclass{\subsubsection}{straight}
+\titleformat{\subsubsection}%
+  [hang]% shape
+  {\normalfont\large\itshape}% format applied to label+text
+  {\thesubsubsection}% label
+  {1em}% horizontal separation between label and title body
+  {}% before the title body
+  []% after the title body
 % Macros for typesetting the documentation
 \newcommand{\hlred}[1]{\textcolor{Maroon}{#1}}% prints in red
 \newcommand{\hangleft}[1]{\makebox[0pt][r]{#1}}
