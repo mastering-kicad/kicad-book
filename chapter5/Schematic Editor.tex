@@ -142,7 +142,7 @@ You can also convert a \textbf{move} action into a \textbf{drag} action by typin
 Holding down \keys{\Alt}
 	\sidenote{
 		Many window managers in Linux will capture \keys{\Alt}+click actions before they reach Eeschema.  
-		If yours is one of them (Gnome, XFWM, KDE), then you will not have access to the shortcut
+		If yours is one of them (Gnome, XFWM, KDE), then you will not have access to the shortcut without modifying your default window manager key shortcuts.
 		}
 before clicking and dragging will cause the selected block of items to be \textbf{rotated} as soon as you release the mouse button.
 
@@ -218,18 +218,20 @@ Documentation in a schematic takes a number of different forms.
 The first and most important step in documentation is to ensure that your components have a full Manufacturer Part Number or \textbf{MPN} assigned to them.
 The \textbf{MPN} is sometimes different from the \textbf{Value} field in the Symbol Properties.
 In a unique component, the value might be the same as the manufacturer.
-But with most components such as in Figure \ref{fig:symbprop}, the value captures a basic, ideal component.
+But with most components such as in Figure \ref{fig:symbprop}, the value captures range of possible components.
 The MPN encodes all of the properties of the component; the footprint, the voltage rating, the temperature rating, etc.
 \begin{figure}
 	\includegraphics{chapter11/6-EditSymbolFinished.png}
-	\caption[fig:symbprop]{Editing the Symbol Properties}
+	\caption[Symbol Properties]{
+		Editing the Symbol Properties.
+		}
+	\label{fig:symbprop}
 \end{figure}
 
 It is a good idea to add the MPN to each part while you are building the circuit.
 This ensures that your schematic matches the reality of which parts are available to you.
 Often, if you design a schematic without MPN, you will find at the end that you need to substitute a number of components due to availability issues, incompatibility or other problems.
 Replacing components in complex circuits can often have knock-on effects when the changes cascade from one system to the next.
-When and where you choose to add 
 
 When adding parts, I like to think in terms of groupings.
 These groups of components are natural starting points for subsheets in a schematic.
@@ -270,13 +272,19 @@ General do-\textbf{not}-rules for good schematic design
 
 \subsection{Wires}
 
+\begin{figure}
+	\includegraphics[width=0.8\textwidth]{chapter5/3-multiple-wires.png}
+	\caption[Wire connection between pins]
+	{
+		The wires form an electrical connection between pins 2, 11 and the ground symbol.
+		The junction (green circle) indicates an electrical connection between all three wires at the junction location.
+	}
+	\label{fig:multiple-wires}
+\end{figure}
+
 Wires form the basic connections in KiCad.
 Any two points on the schematic with a wire between them are connected to the same net in the netlist.
-
-\begin{figure}
-	\includegraphics{chapter5/3-multiple-wires.png}
-	\caption[fig:multiple-wires]{The wires form an electrical connection between pins 11, 2 and the ground symbol.}
-\end{figure}
+In Figure \ref{fig:multiple-wires}, the wires connect pins 11 (AGND) and 2 (DGND) of the IC with each other and with pin 1 of the GND symbol.
 
 \subsection{Busses}
 
@@ -310,8 +318,10 @@ They differ in their scope as well as their precedence.
 	}
 	\label{fig:locallabels}
 \end{marginfigure}
-The most basic and lowest precedence label is the local label shown in Figure \ref{fig:locallabels}.
-This label appears as unadorned text.
+\paragraph{Local Labels} 
+The most basic and lowest precedence label in Eeschema is called a Local Label.
+An example of a local label is shown in Figure \ref{fig:locallabels}.
+This label appears as unadorned text with the connection point at the bottom of the beginning or bottom of the end of the text, depending on its orientation.
 Wires can connect using these labels only on the same schematic sheet.
 You can reuse local label names across different sheets and hierarchy levels without connecting the wires.
 
@@ -325,7 +335,7 @@ Therefore, in the netlist, this net will be referred to as '\textbf{a\_label}'.
 	}
 	\label{fig:hlabel-types}
 \end{marginfigure}
-The next type of label in precedence is called a Hierarchical Label.
+\paragraph{Hierarchical Labels} The next type of label in precedence is called a Hierarchical Label.
 Hierarchical labels connect both signals on the same schematic sheet as well as those signals in the hierarchy?s parent schematic sheet.
 
 To create a hierarchical label, you must link both the parent sheet and its child sheet together with the same label name.
@@ -340,7 +350,7 @@ This is done by first creating the hierarchical label in the child sheet (Hotkey
 	}
 	\label{fig:glabel-types}
 \end{marginfigure}
-The global labels are similar in appearance to the hierarchical labels.
+\paragraph{Global Labels} The global labels are similar in appearance to the hierarchical labels.
 They exist at the highest precedence in the schematic.
 The net name can only be used for a single network in the entire schematic and will overwrite other netnames where it is connected to them.
 
@@ -359,12 +369,19 @@ Adding a junction to the point where the pins connect will join the wires togeth
 
 At each junction, a wire is broken into two segments (before and after the junction).
 
-
-
 \subsection{No Connects}
+Every pin in your schematic should be explicitly connected to at least one other, compatible pin.
+If they are not, the Electric Rules Check will raise an error.
+Sometimes, however, this is not the behavior that you intend.
+For example, if you use a hex inverter like \textbf{SN7404} but only need 5 of the six elements, you will want to explicitly show the Electrical Rules Check that the sixth element output pin should not be connected on your circuit.
+
+The no-connect symbol can be placed on pins to indicate that you intend to leave the pin electrically unconnected.
+
 \subsection{Hierarchical Pins}
 
+
 \section{Electrical Rules Check}
+\
 
 \section{Graphical Elements}
 
