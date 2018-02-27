@@ -336,10 +336,10 @@ Therefore, in the netlist, this net will be referred to as '\textbf{a\_label}'.
 	\label{fig:hlabel-types}
 \end{marginfigure}
 \paragraph{Hierarchical Labels} The next type of label in precedence is called a Hierarchical Label.
-Hierarchical labels connect both signals on the same schematic sheet as well as those signals in the hierarchy?s parent schematic sheet.
+Hierarchical labels connect both signals on the same schematic sheet as well as those signals in the hierarchy's parent schematic sheet.
 
 To create a hierarchical label, you must link both the parent sheet and its child sheet together with the same label name.
-This is done by first creating the hierarchical label in the child sheet (Hotkey default: \textbf{H}) and then, using the ``Import Hierarchical Pin?? tool, clicking on the child?s sheet from within the parent sheet.
+This is done by first creating the hierarchical label in the child sheet (Hotkey default: \textbf{H}) and then, using the ``Import Hierarchical Pin'' tool, clicking on the child's sheet from within the parent sheet.
 
 \begin{marginfigure}
 	\includegraphics{chapter5/6-glabel-types.png}
@@ -370,6 +370,7 @@ Adding a junction to the point where the pins connect will join the wires togeth
 At each junction, a wire is broken into two segments (before and after the junction).
 
 \subsection{No Connects}
+\label{sec:noconnect}
 Every pin in your schematic should be explicitly connected to at least one other, compatible pin.
 If they are not, the Electric Rules Check will raise an error.
 Sometimes, however, this is not the behavior that you intend.
@@ -381,11 +382,120 @@ The no-connect symbol can be placed on pins to indicate that you intend to leave
 
 
 \section{Electrical Rules Check}
-\
+
+\newthought{The Electrical Rules Check (ERC)} is one of the most useful and, to those just learning Eeschema, confusing aspects of schematic design.
+ERC acts as a check against basic mistakes in circuit design.
+It tests how you have connected component pins together, warning or giving an error when conflicting types are connected or left floating.
+It also tests for label names that are conflicting or differ only by the capitalization.
+
+Because ERC is so useful and confusing, we'll spend a bit of covering the options as well as work-arounds for when you \textit{really} want to do something that ERC doesn't like.
+We'll cover the pin types in the same fashion as the ERC options window ? that is by working through potential combinations without duplication.
+To read the various connection combinations in the ERC options, you should find your first pin type in the left-hand column.
+Then, follow all of the connection options to the right by looking at the column label.
+Once you reach the identity combination (e.g. Intput-Input or Passive-Passive), follow the remaining combinations vertically down the column and match the options by looking at the row label.
+
+\paragraph{No Connection} In ERC, No Connection means a dangling connection.
+That is, a pin that isn't connected to another pin \textbf{and} doesn't have a no connect symbol attached to the end.
+To get rid of these errors, you need to connect the pin or explicitly show that it shouldn't have a connection by attaching a no connect symbol as discussed in Section \ref{sec:noconnect}.
+
+\paragraph{Input Pin} The Input can connect to all other pin types except Unspecified pins, which throw warnings.
+The logic is that input pins will typically be high-impedance, therefore they should not interfere with the operation of other pins.
+Not listed in the options is the additional ERC check that each net have at least one non-input pin.
+If your net is purely high-impedance input pins, then nothing will set the potential voltage.
+
+\begin{marginfigure}
+	\includegraphics{chapter5/8-inputpinERC.png}
+	\caption[Error on input pins]{
+		The green arrow shows the result of an ERC for this simple circuit.
+		Here, the inverting and non-inverting inputs are both high-impedance input pins.
+		The ERC reports ``\textbf{ErrType(3): Pin connected to some others pins but no pin to drive it.}''
+	}
+	\label{fig:inputerc}
+\end{marginfigure}
+An example of this is shown in Figure \ref{fig:inputerc}.
+The ERC options do not allow you to disable this error.
+
+However, there might be a case where you want to allow two input pins to be the only ones on a net.
+While these should be the exception rather than the rule, it can be helpful to designate this net as allowed.
+
+A simple bypass is shown in Figure \ref{fig:inputerc-fixed}.
+The passive pin on the testpoint tells the ERC that the net is acceptable as-is.
+The testpoint does need to be annotated, as all symbols do on the schematic.
+By manually prefixing the symbol reference with a ``\textbf{\#}'', we indicate that there is no footprint associated with the test point.
+The ``\textbf{\#}'' indicates that the symbol is a flag rather than an actual component.
+If you don't like having the test point colocated with your pins, you can always use a label to attach the flag to the net at a spot where it doesn't detract from your circuit.
+\begin{marginfigure}
+	\includegraphics{chapter5/9-inputpinERC-fixed.png}
+	\caption[Allowing only input pins]{
+		The addition of a test point on the net resolves the ERC error from Figure \ref{fig:inputerc}.
+		This adds a passive pin to the network, bypassing the ERC error.
+		The name begins with ``\textbf{\#}'' to prevent a footprint from being placed on the schematic.
+	}
+	\label{fig:inputerc-fixed}
+\end{marginfigure}
+
+\paragraph{Output Pin} Pins designated as output actively set their own voltage potential.
+By default, ERC allows these to connect to input, power input, bidirectional and passive pins without error.
+Connecting an output pin to a Tri-State pin or an unspecified pin will generate a warning and connecting an output pin to any other type of output pin, including open collectors and open emitters is an error.
+
+The logic behind warning when connecting an output pin to a tri-state pin is that it might not allow the tri-state pin to reach its third state (disconnected).
+Some output pins, however, will go into a high-impedance state when their IC is disabled, either by a separate pin or disconnecting power.
+Or you might not need access to the pin's third state and therefore are perfectly happy to allow it to connect to an output pin.
+
+The logic behind throwing an error when there are multiple outputs on the same net is that the net may be driven to different voltages by the different outputs.
+When this happens, the copper trace between the outputs is the only impedance, leading to potentially large current draws and damage.
+While this is almost always a bad thing, there are cases where you might want more than one output connected to the same net.
+\begin{marginfigure}[-2in]
+	\includegraphics{chapter5/10-outputpinERC.png}
+	\caption[Error connecting output pins]{
+		The red arrow shows that we have a pin conflict in the ERC.
+		The ERC error message is ``\textbf{ErrType(5): Conflict problem between pins. Severity: error}''.
+	}
+\end{marginfigure}
+To accomplish this, we employ a net tie.
+You will find these symbols in the ``device'' library.
+\sidenote{
+	You could accomplish the same action by using any two-terminal passive component such as a resistor or inductor but this causes unnecessary confusion in your schematic.  
+	Net ties are preferred as they indicate a component that exists only as a schematic and copper item.
+}
+\begin{marginfigure}
+	\includegraphics{chapter5/11-outputpinERC-fixed.png}
+	\caption[How to connect output pins]{
+		By placing a passive net tie between the two output pins, the ERC error is resolved.
+	}
+	\label{fig:nettie}
+\end{marginfigure}
+By placing a net tie between the two output pins as shown in Figure \ref{fig:nettie}, the output pins each connect to a passive pin on the net tie, resolving the ERC error.
+On the PCB, a net tie footprint is two overlapping copper pads.
+You can create your own to get a specific copper width or use one of the pre-defined ones in the KiCad footprint library.
+
+\paragraph{Bidirectional Pin} The Bidirectional pin will issue a warning when directly connected to low impedance output pins including power output, open collector and open emitter pins.
+If you wish to suppress this type of error for a single connection, you can employ the net tie workaround as shown in Figure \ref{fig:nettie}.
+It is generally considered good design to employ an actual resistor that will limit the current potentially sunk by the bidirectional pin, should it accidentally be set to output when there is a power output on the same net.
+For example, if your bidirectional pin can sink up to 20 milliampere of current and it is meant to connect to a power output of 15 volts, safe design would add a resistor of at least 750 ohms between the bidirectional pin and the power output pin.
+As the designer, however, you will need to take into account all of the other factors that might be affected by the addition of this resistor.
+
+\newthought{The remaining ERC connection combinations} take the same form as the three we've discussed above.
+Warnings are issued for connections that \textit{might} be unintentional.
+Errors are issued for connections that \textit{usually} are unintentional or problematic.
+Each of the ERC checks can be changed from their default to valid (green), warning (yellow) or error (red).
+Changing in the ERC options will affect the entire project.
+
+\begin{quote}
+	\itshape Note that, of the ERC options, only the option to test for similar labels is saved.
+	All other options are reset at each KiCad session, so you will need to re-initialize them between runs.
+	The test for similar labels option is saved in the KiCad project file and therefore will need to be unset for each KiCad project in which you want it disabled.
+\end{quote}
 
 \section{Graphical Elements}
+Adding an image to your schematic can be helpful in documenting a schematic, branding your work or just an attractive decoration.
+Eeschema supports adding many common bitmap image formats including PNG, JPG, BMP, PIC and others.
+Once added to your schematic, the image can be moved, rotated, flipped and rescaled.
+It can also be converted to greyscale, however, at the moment, this is a one-way operation, so use with care.
 
-\section{Templates}
+\section{Annotation}
+
+
 
 \section{Schematic Editor Examples}
 \subsection{Example 1: Single Page Schematic}
