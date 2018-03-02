@@ -495,6 +495,17 @@ It can also be converted to greyscale, however, at the moment, this is a one-way
 
 \section{Annotation}
 
+Before exporting your circuit diagram or even running the ERC, you will need to assign unique names to each of the components in your schematic.
+This process is called ``Annotating''.
+When you first place a new symbol or duplicate an existing symbol in Eeschema, the Reference field is suffixed with a ``?''.
+During annotation, this question mark is replaced by a sequential number\sidenote{The sequence of the number can optionally be set to start at the beginning of the hierarchy or at a multiple (10x, 100x) of the sheet number}, giving each component in your schematic a unique reference.
+
+\begin{figure}
+	\includegraphics{chapter11/60-Annotate.png}
+	\caption[Annotation Options Window]{The annotation options window allows you to clear and complete the annotation of a schematic.  You will need to do this whenever you add a new component to your schematic before you can use it.}
+	\label{fig:annotate}
+\end{figure}
+
 
 
 \section{Schematic Editor Examples}
