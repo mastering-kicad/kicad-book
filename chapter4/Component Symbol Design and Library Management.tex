@@ -2,9 +2,37 @@
 
 \chapter{Component Symbol Design and Library Management}
 
+Components in KiCad represent the electrical state of a single element in the schematic.
+They also map the pin numbers of the element to a descriptive pin name.
+
+In the schematic, we wire connections to pins based on their names and idiomatic positions.
+The netlist is then generated using the pin number to map the schematic to the physical connections on the circuit board.
+
+KiCad has a group of dedicated librarians who design, organize and curate a library of more than 10,000 symbols that are free to download at \url{https://kicad.github.io/symbols/}.  
+Each symbol represents a distinct part.
+
 \section{Libraries, Parts and Aliases}
 
+In general, there are two types of symbols in the KiCad libraries: Atomic and Generic.
+A Generic part is one for which there are many possible footprints and variations.
+Examples of Generic parts are \textit{Resistors}, \textit{Capacitors}, \textit{BJTs} and similar parts.
+
+Generic parts will typically not have footprints, footprint filters, manufacturer part numbers or similar identifying characteristics as there are many variations for each.
+
+Atomic parts, on the other hand represent a specific manufacturer part.
+These will typically have their associated datasheet, mpn and footprint assigned in the library.
+
+Many components have alternate versions for small variations such as temperature or voltage compliance.
+Where the pin numbers do not change between variations, we typically utilize \textit{aliases}.
+An alias of a part is a component with the same pin number to pin name mapping but different part name and potentially different footprint, documentation and part description.
+
 \section{KLC Design Guidelines}
+
+The Kicad Library Convention (KLC) provides design guidelines for the creation of KiCad-like parts.
+While nothing in the underlying KiCad code prevents you from breaking the convention, the KLC provides stylistic guidelines that will help your parts to work well with the existing libraries.
+They are also required if and when you decide to submit your library parts for inclusion in the KiCad distribution.
+
+
 
 \section{Graphic Items}
 
