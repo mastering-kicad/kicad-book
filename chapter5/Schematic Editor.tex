@@ -43,40 +43,41 @@ In KiCad, the majority of functions are accessed using buttons and hotkeys.
 Unlike many programs, where functionality is often buried in sub-menus, KiCad prefers to expose its controls up front.
 This has the benefit of providing easy access to virtually all commands, and the drawback of an overwhelming first impression.
 
-\begin{figure*}
-    \begin{tikzpicture}[baseline]
-    \begin{scope}
-        \node[anchor=south west,inner sep=0] (image) at (0,0) 
-        	{\includegraphics[width=4.5in]{chapter5/eeschema-main.png}};
-        \begin{scope}[x={(image.south east)},y={(image.north west)}]
-            \node [anchor=south] (file) at (0.08,1.0) {\large File\strut };
-            \node [anchor=south] (edit) at (0.2575,1.0) {\large Edit\strut };
-            \node [anchor=south] (view) at (0.438,1.0) {\large View\strut };
-            \node [anchor=south] (app) at (0.763,1.0) {\large Applications\strut };
-            \node [anchor=south, rotate=-90] (tools) at (1.0,0.5) {\large Schematic Tools};
-            \node [anchor=north, rotate=-90] (options) at (0.0,0.5) {\large Display Options};
-            \node [above left=-2pt] (coord) at (0.0,0.0) {\large Coordinates };
-            
-%            \draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
-            \draw[red,thick,rounded corners] (0.0,0.923) rectangle (0.155,0.97);
-            \draw[red,thick,rounded corners] (0.162,0.923) rectangle (0.35,0.97);
-            \draw[red,thick,rounded corners] (0.357,0.923) rectangle (0.525,0.97);
-            \draw[red,thick,rounded corners] (0.60,0.923) rectangle (1.0,0.97);
-            \draw[black!80,thick, dashed, rounded corners] (0.961,0.92) rectangle (1.0,0.05);
-            \draw[black!80,thick, dashed, rounded corners] (0.0,0.92) rectangle (0.039,0.7);
-            \draw [-latex, thick, red] ([yshift=-2pt]file.base) -- ++(0,-0.05);
-            \draw [-latex, thick, red] ([yshift=-2pt]view.base) -- ++(0,-0.05);
-            \draw [-latex, thick, red] ([yshift=-2pt]edit.base) -- ++(0,-0.05);
-            \draw [-latex, thick, red] ([yshift=-2pt]app.base) -- ++(0,-0.05);
-            \draw [-latex, thick, dashed, black!80] (tools.west) to[out=90, in=-20] (1.0,0.85);
-            \draw [-latex, thick, dashed, black!80] (options.west) to[out=90, in=-160] (0.0,0.85);
-            \draw [-latex, thick, dotted, black!80] (coord.east) -- ++(0.15,0.0);
-        \end{scope}
-    \end{scope}
-    \end{tikzpicture}
+\begin{figure}
+	\hspace*{-1cm}%
+	\begin{tikzpicture}[baseline]
+	\begin{scope}
+		\node[anchor=south west,inner sep=0] (image) at (0,0) 
+			{\includegraphics[width=4.0in]{chapter5/eeschema-main.png}};
+		\begin{scope}[x={(image.south east)},y={(image.north west)}]
+			\node [anchor=south] (file) at (0.08,1.0) {\large File\strut };
+			\node [anchor=south] (edit) at (0.2575,1.0) {\large Edit\strut };
+			\node [anchor=south] (view) at (0.438,1.0) {\large View\strut };
+			\node [anchor=south] (app) at (0.763,1.0) {\large Applications\strut };
+			\node [anchor=south, rotate=-90] (tools) at (1.0,0.5) {\large Schematic Tools};
+			\node [anchor=north, rotate=-90] (options) at (0.0,0.5) {\large Display Options};
+			\node [anchor=north west] (coord) at (0.0,0.0) {\large Coordinates };
+			
+%			\draw[help lines,xstep=.05,ystep=.05] (0,0) grid (1,1);
+			\draw[red,thick,rounded corners] (0.0,0.923) rectangle (0.155,0.97);
+			\draw[red,thick,rounded corners] (0.162,0.923) rectangle (0.35,0.97);
+			\draw[red,thick,rounded corners] (0.357,0.923) rectangle (0.525,0.97);
+			\draw[red,thick,rounded corners] (0.60,0.923) rectangle (1.0,0.97);
+			\draw[black!80,thick, dashed, rounded corners] (0.961,0.92) rectangle (1.0,0.05);
+			\draw[black!80,thick, dashed, rounded corners] (0.0,0.92) rectangle (0.039,0.7);
+			\draw [-latex, thick, red] ([yshift=-2pt]file.base) -- ++(0,-0.05);
+			\draw [-latex, thick, red] ([yshift=-2pt]view.base) -- ++(0,-0.05);
+			\draw [-latex, thick, red] ([yshift=-2pt]edit.base) -- ++(0,-0.05);
+			\draw [-latex, thick, red] ([yshift=-2pt]app.base) -- ++(0,-0.05);
+			\draw [-latex, thick, dashed, black!80] (tools.west) to[out=90, in=-20] (1.0,0.85);
+			\draw [-latex, thick, dashed, black!80] (options.west) to[out=90, in=-160] (0.0,0.85);
+			\draw [-latex, thick, dotted, black!80] (coord.east) to[out=90, in=-190] (0.3,0.02);
+		\end{scope}
+	\end{scope}
+	\end{tikzpicture}
 	
 	\caption[fig:eeschema]{The Eeschema main window.  Control and execution buttons are on the top, options buttons are in the left vertical bar and tools buttons are in the right vertical bar. }
-\end{figure*}
+\end{figure}
 
 Looking at the Eeschema window in Figure \ref{fig:eeschema}, you can see this division.
 The ``Display Options'' toolbar on the left consists of buttons and are either enabled or disabled, depending on your working preferences.
@@ -498,10 +499,10 @@ It can also be converted to greyscale, however, at the moment, this is a one-way
 Before exporting your circuit diagram or even running the ERC, you will need to assign unique names to each of the components in your schematic.
 This process is called ``Annotating''.
 When you first place a new symbol or duplicate an existing symbol in Eeschema, the Reference field is suffixed with a ``?''.
-During annotation, this question mark is replaced by a sequential number\sidenote{The sequence of the number can optionally be set to start at the beginning of the hierarchy or at a multiple (10x, 100x) of the sheet number}, giving each component in your schematic a unique reference.
+During annotation, this question mark is replaced by a sequential number\sidenote[][-36pt]{The sequence of the number can optionally be set to start at the beginning of the hierarchy or at a multiple (100x, 1000x) of the sheet number}, giving each component in your schematic a unique reference.
 
 \begin{figure}
-	\includegraphics{chapter11/60-Annotate.png}
+	\includegraphics[width=0.5\textwidth]{chapter11/60-Annotate.png}
 	\caption[Annotation Options Window]{The annotation options window allows you to clear and complete the annotation of a schematic.  You will need to do this whenever you add a new component to your schematic before you can use it.}
 	\label{fig:annotate}
 \end{figure}
